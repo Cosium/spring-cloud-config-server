@@ -1,4 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.springframework.boot.gradle.tasks.bundling.BootBuildImage
 
 plugins {
     id("org.springframework.boot")
@@ -60,4 +61,10 @@ dependencyManagement {
     imports {
         mavenBom("org.springframework.cloud:spring-cloud-dependencies:${properties["springCloudVersion"]}")
     }
+}
+
+tasks.getByName<BootBuildImage>("bootBuildImage") {
+//    builder = "mine/java-cnb-builder"
+//    runImage = "mine/java-cnb-run"
+//    imageName = "test"
 }
